@@ -1,66 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Frontend Mentor - Advice generator app solution
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## About Laravel
+## Table of contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### The challenge
 
-## Learning Laravel
+Users should be able to:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Generate a new piece of advice by clicking the dice icon
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Screenshots
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![](/Users/FGB/Downloads/L2 - Advice generator app - desktop.png)
 
-## Laravel Sponsors
+<img src="/Users/FGB/Downloads/L2 - Advice generator app - mobile.png" alt="L2 - Advice generator app - mobile" style="zoom:50%;" />
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+![L2 - Advice generator app - hover](/Users/FGB/Downloads/L2 - Advice generator app - hover.png)
 
-### Premium Partners
+### Links
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Solution URL: [GitHub](https://github.com/pwdrz/advice-generator-app)
+- Live Site URL: [GitHub Pages](https://pwdrz.github.io/advice-generator-app/)
 
-## Contributing
+## My process
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Built with
 
-## Code of Conduct
+- Semantic HTML5 markup
+- Tailwind CSS
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- Laravel - PHP framework
+- Livewire - Full Stack Framework for Laravel
+- Volt API - SFC support
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### What I learned
 
-## Security Vulnerabilities
+I am currently trying to get into Full Stack Dev with the TALL-Stack. For this project I did not have to use Alpine at all. It's quite amazing how you did not have to leave the backend for this FRONTEND challenge. I pretty much lack everything, so this challenge was ideal for me to learn from. Loved the design and idea of having advices every refresh that kept me going. My main challenge towards the end was to get the mobile divider SVG fitting into 320px screens. It kept messing up the viewport. Thats where I stumpled upon viewBox for the first time. Really handy when the SVG needs to be responsive.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Things i learned along the way:
 
-## License
+- working with a simple API
+- responsive SVGs with viewBox
+- Tailwind CSS custom properties in the tailwind config
+- creating livewire templates for the SVGs to keep the index file clean
+- refresher for relative positioning to create that cool overflowing effect
+- animations
+- transitions / duration
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Code snippets**
+
+*Fetching the API*
+
+```php
+public function fetchAdvice()
+{
+    $response = Http::get('https://api.adviceslip.com/advice');
+    $this->obj = json_decode($response->body())->slip;
+}
+```
+*Including blade template*
+
+```php
+@include('icons.divider-desktop', [
+    'class' => 'h-4 w-[444px]',
+])
+```
+*Tailwind config*
+
+```css
+theme: {
+      fontWeight: {
+          normal: 400,
+          medium: 500,
+          bold: 800,
+      },
+      extend: {
+          colors: {
+              primary: {
+                  lightCyan: "#cee3e9",
+                  neonGreen: "#52ffa8",
+              },
+              neutral: {
+                  grayishBlue: "#4e5d73",
+                  darkGrayishBlue: "#323a49",
+                  darkBlue: "#1f2632",
+              }
+          },
+          fontFamily: {
+              manrope : ["Manrope", "sans-serif"],
+          },
+          boxShadow: {
+              'custom': '0 0 32px  hsl(150, 100%, 66%)',
+            },
+```
+
+### Continued development
+
+In the future it would be nice to not waste as much time trying to figure out which classes have to be assigned to elements so that they are positioned correctly. Further more I would love to get into more challenging stuff, where algorithms, classes and methods are needed. It would also be nice to work on something like a filter, list or table. Someday...!
+
+### Useful resources
+
+- [MDN on viewBox](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) - viewBox explained.
+- [Handling templates](https://laravel.com/docs/11.x/blade#including-subviews) - Docs that explain how to render templates and pass additional data.
+- [Tailwind configuration](https://tailwindcss.com/docs/configuration) - Adding own variables in the tailwind config.
+
+## Author
+
+- Frontend Mentor - [@pwdrz](https://www.frontendmentor.io/profile/pwdrz)
+- GitHub - [@pwdrz](https://github.com/pwdrz/)
