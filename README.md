@@ -27,11 +27,19 @@ Users should be able to:
 
 ### Screenshots
 
-![](/Users/FGB/Downloads/L2 - Advice generator app - desktop.png)
 
-<img src="/Users/FGB/Downloads/L2 - Advice generator app - mobile.png" alt="L2 - Advice generator app - mobile" style="zoom:50%;" />
 
-![L2 - Advice generator app - hover](/Users/FGB/Downloads/L2 - Advice generator app - hover.png)
+<img src="public/gfx/screenshots/L2 - Advice generator app - desktop.png" alt="desktop" width="1000"/>
+
+
+
+<img src="public/gfx/screenshots/L2 - Advice generator app - mobile.png" alt="desktop" width="300"/>
+
+
+
+<img src="public/gfx/screenshots/L2 - Advice generator app - hover.png" alt="desktop" width="1000"/>
+
+
 
 ### Links
 
